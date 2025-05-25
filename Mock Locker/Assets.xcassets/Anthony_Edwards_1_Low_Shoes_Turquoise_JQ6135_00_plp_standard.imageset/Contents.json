@@ -1,0 +1,21 @@
+{
+  "images" : [
+    {
+      "filename" : "Anthony_Edwards_1_Low_Shoes_Turquoise_JQ6135_00_plp_standard.png",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "images" : [
+    {
+      "filename" : "F50_League_Firm-Multi-Ground_Cleats_Black_IE1294_22_model.png",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

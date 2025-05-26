@@ -11,7 +11,7 @@ import SwiftUI
 struct Mock_LockerApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            HomePage()
         }
     }
 }

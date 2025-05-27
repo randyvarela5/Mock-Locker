@@ -230,7 +230,7 @@ struct MerchandiseData  {
                     imageURL: "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/be0fa957-6a46-4f4d-a871-7e55d9718893/NIKE+CALM+MULE+NA.png"),
         
         Merchandise(brand: "Adidas",
-                    name: "F50 League Firm/Multi-Ground Cleats",
+                    name: "F50 League Firm",
                     price: 74.99,
                     category: "Footwear",
                     description: "Push your pace to the limit in lightweight adidas F50 footwear engineered for speed. Standing out with an eye-catching Sprintgrid print, the Fiberskin upper on these League soccer cleats employs an adaptive Tunnel Tongue that locks you in for the ride. Turn them over and you'll find a Sprintplate 360 outsole that delivers extra zip on firm ground and artificial grass surfaces.",
@@ -242,7 +242,7 @@ struct MerchandiseData  {
                     imageURL: "https://assets.adidas.com/images/h_2000,f_auto,q_auto,fl_lossy,c_fill,g_auto/50b2e521418c49ca90581ad3f745e909_9366/F50_League_Firm-Multi-Ground_Cleats_Black_IE1294_01_00_standard_hover.jpg"),
         
         Merchandise(brand: "Adidas",
-                    name: "F50 Elite Artificial Grass Cleats",
+                    name: "F50 Elite",
                     price: 104.99,
                     category: "Footwear",
                     description: "Push your pace to the limit in lightweight adidas F50 footwear engineered for speed. These Elite soccer cleats have a thin Fibertouch upper with a Compression Fit Tunnel Tongue for lockdown and a Sprintweb 3D texture to help keep the ball close when you're flying. Designed for artificial grass pitches, the Traxionframe outsole delivers serious acceleration.",

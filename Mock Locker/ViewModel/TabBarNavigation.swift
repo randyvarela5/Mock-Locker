@@ -22,6 +22,7 @@ struct TabBarNavigation: View {
                 .tabItem {
                     Image(systemName: "person.crop.circle"); Text("Accounts")
                 }
+                .background(.white)
             Text("Checkout")
                 .tabItem {
                     Image(systemName: "cart"); Text("Checkout")
@@ -31,7 +32,10 @@ struct TabBarNavigation: View {
                     Image(systemName: "questionmark.circle"); Text("About")
                 }
         }
-
+        .onAppear {
+            UITabBar.appearance().backgroundColor = UIColor.black
+            UITabBar.appearance().unselectedItemTintColor = UIColor.white
+        }
     }
 }
 

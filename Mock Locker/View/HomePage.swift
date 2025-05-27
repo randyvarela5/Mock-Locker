@@ -15,6 +15,15 @@ struct HomePage: View {
         VStack {
             HeaderView()
             
+            ScrollView(.horizontal) {
+                HStack(spacing : 16) {
+                    ForEach(MerchandiseData.merchandise) { product in
+                        ProductCard(product: product)
+                        
+                    }
+                }
+            }
+            
             TabBarNavigation()
         }
     }

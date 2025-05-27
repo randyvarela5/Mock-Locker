@@ -1,5 +1,5 @@
 //
-//  HomePage.swift
+//  TabBarNavigation.swift
 //  Mock Locker
 //
 //  Created by Randy Varela on 5/26/25.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct HomePage: View {
+struct TabBarNavigation: View {
     var body: some View {
         TabView {
             Text("Home")
@@ -30,13 +30,11 @@ struct HomePage: View {
                 .tabItem {
                     Image(systemName: "questionmark.circle"); Text("About")
                 }
-            
-            
         }
-        
+
     }
 }
 
 #Preview {
-    HomePage()
+    TabBarNavigation()
 }

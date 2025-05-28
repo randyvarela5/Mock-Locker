@@ -10,7 +10,7 @@ import SwiftUI
 struct TabBarNavigation: View {
     var body: some View {
         TabView {
-            Text("Home")
+            HomePage()
                 .tabItem {
                     Image(systemName: "house"); Text("Home")
                 }

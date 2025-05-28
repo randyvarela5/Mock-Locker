@@ -24,7 +24,7 @@ struct ProductCard: View {
                 .font(.subheadline)
                 .padding(.bottom, 5)
             Text(product.price, format: .currency(code: "USD"))
-                .font(.title2)
+                .font(.title2.bold())
                 .foregroundStyle(.green)
         }
     }

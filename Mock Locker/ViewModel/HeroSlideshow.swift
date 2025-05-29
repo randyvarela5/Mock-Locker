@@ -59,9 +59,35 @@ struct HeroSlideshow: View {
                                         .frame(width: 44, height: 44)
                                 )
                         }
+                        Spacer()
+                        
+                        // Pagination Dots
+//                        HStack(spacing: 8) {
+//                            ForEach(0..<slides.count, id: \.self) { index in
+//                                Circle()
+//                                    .fill(currentIndex == index ? Color.white : Color.white.opacity(0.5))
+//                                    .frame(width: currentIndex == index ? 10 : 8, height: currentIndex == index ? 10 : 8)
+//                                    .scaleEffect(currentIndex == index ? 1.00 : 0.8)
+//                                    .withAnimation(.easeInOut(durtaion: 0.3), value: currentIndex)
+//                                    .onTapGesture {
+//                                        .withAnimation(.easeInOut(duration: 0.5)) {
+//                                            currentIndex = index
+//                                        }
+//                                        resetTimer()
+//                                    }
+//                            }
+//                        }
+//                        .padding(.horizontal, 16)
+//                        .padding(.vertical, 8)
+//                        .background(
+//                            Capsule()
+//                                .fill(Color.black.opacity(0.3))
+//                        )
                     }
                 }
             }
+            .frame(height: 250)
+            .padding()
             
         }
     }
@@ -109,7 +135,7 @@ struct HeroSlideshow: View {
         }
         resetTimer()
     }
-
+    
     
 }
 

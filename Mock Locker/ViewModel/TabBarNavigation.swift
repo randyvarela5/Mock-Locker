@@ -33,8 +33,15 @@ struct TabBarNavigation: View {
                 }
         }
         .onAppear {
-            UITabBar.appearance().backgroundColor = UIColor.black
-            UITabBar.appearance().unselectedItemTintColor = UIColor.white
+            let tabBarAppearance = UITabBarAppearance()
+                tabBarAppearance.backgroundColor = UIColor.black
+                
+                // Set both standard and scrollEdge appearances
+                UITabBar.appearance().standardAppearance = tabBarAppearance
+                UITabBar.appearance().scrollEdgeAppearance = tabBarAppearance
+                
+                // Keep your existing tint color
+                UITabBar.appearance().unselectedItemTintColor = UIColor.white
         }
     }
 }

@@ -14,6 +14,5 @@ struct HeroSlide {
     let title: String
     let subtitle: String
     let backgroundImage: String
-    let backgroundColor: Color
 }
 

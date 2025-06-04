@@ -17,64 +17,61 @@ struct HeroSlideshow: View {
     let slides = [
         HeroSlide(
             id: 1,
-            title: "Your personal locker",
-            subtitle: "Store everything you need",
-            backgroundImage: "hero1",
-            backgroundColor: .red
+            title: "The Fathers day shop",
+            subtitle: "Get inspired with these top deals for dad",
+            backgroundImage: "FathersDayHero"
         ),
         
         HeroSlide(
             id: 2,
-            title: "Slide 2 title",
-            subtitle: "slide 2 subtitle",
-            backgroundImage: "hero2",
-            backgroundColor: .blue
+            title: "Stanley Quenchers",
+            subtitle: "So that people will like you",
+            backgroundImage: "StanleyMAP"
         )
     ]
     
     var body: some View {
         GeometryReader { geometry in
-            ZStack{
-                TabView(selection: $currentIndex) {
-                    ForEach(0..<slides.count, id: \.self) { index in
-                        HeroSlideView(slide: slides[index])
-                            .tag(index)
-                    }
-                }
-                .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
-                .animation(.easeInOut(duration: 0.6), value: currentIndex)
-                
-                // Overlay controls
-                VStack {
-                    Spacer()
-                    HStack {
-                        //Play/Pause button
-                        Button(action: togglePlayPause) {
-                            Image(systemName: isPlaying ? "pause.circle.fill" : "play.circle.fill")
-                                .font(.title2)
-                                .foregroundColor(.white)
-                                .background(
-                                    Circle()
-                                        .fill(Color.black.opacity(0.3))
-                                        .frame(width: 44, height: 44)
-                                )
+            VStack{
+                ZStack{
+                    TabView(selection: $currentIndex) {
+                        ForEach(0..<slides.count, id: \.self) { index in
+                            HeroSlideView(slide: slides[index])
+                                .tag(index)
                         }
-                        Spacer()
-                        
-                        
-                        PaginationDots(totalPages: slides.count,
-                                       currentIndex: currentIndex,
-                                       onPageTap: { index in
-                                           withAnimation(.easeInOut(duration: 0.5)) {
-                                               currentIndex = index
-                                           }
-                                           resetTimer()
-                                       })
                     }
+                    .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
+                    .animation(.easeInOut(duration: 0.6), value: currentIndex)
+                    
+                    // Overlay controls: These work, but I dont think I need them yet.
+                    //                VStack {
+                    //                    Spacer()
+                    //                    HStack {
+                    //                        Button(action: togglePlayPause) {
+                    //                            Image(systemName: isPlaying ? "pause.circle.fill" : "play.circle.fill")
+                    //                                .font(.title2)
+                    //                                .foregroundColor(.white)
+                    //                                .background(
+                    //                                    Circle()
+                    //                                        .fill(Color.black.opacity(0.3))
+                    //                                        .frame(width: 44, height: 44)
+                    //                                )
+                    //                        }
+                    //                        Spacer()
+                    //                        PaginationDots(totalPages: slides.count,
+                    //                                       currentIndex: currentIndex,
+                    //                                       onPageTap: { index in
+                    //                                           withAnimation(.easeInOut(duration: 0.5)) {
+                    //                                               currentIndex = index
+                    //                                           }
+                    //                                           resetTimer()
+                    //                                       })
+                    //                    }
+                    //                }
                 }
+                .frame(height: 250)
+                .padding()
             }
-            .frame(height: 250)
-            .padding()
             
         }
     }

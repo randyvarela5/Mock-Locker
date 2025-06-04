@@ -16,6 +16,18 @@ struct HomePage: View {
             HeaderView()
             ScrollView {
                 VStack {
+                    HStack {
+                        Text("Shop all departments")
+                            .font(.headline)
+                    }
+                    Rectangle()
+                        .fill(Color.gray.opacity(0.3))
+                        .padding(.vertical, 16)
+                    HeroSlideshow()
+                        .frame(height: 280)
+                    Rectangle()
+                        .fill(Color.gray.opacity(0.3))
+                        .padding(.vertical, 16)
                     ProductCarousel()
 
                     Rectangle()
@@ -28,9 +40,9 @@ struct HomePage: View {
     }
 }
 
-#Preview {
-    HomePage()
-}
+//#Preview {
+//    HomePage()
+//}
 
 
 

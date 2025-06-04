@@ -12,10 +12,8 @@ struct HeroSlideView: View {
     let slide : HeroSlide
     var body: some View {
         ZStack {
-            LinearGradient(colors: [slide.backgroundColor, slide.backgroundColor.opacity(0.6)],
-                           startPoint: .topLeading,
-                           endPoint: .bottomTrailing
-            )
+            Image(slide.backgroundImage)
+
             
             VStack {
                 Spacer()
@@ -45,6 +43,6 @@ struct HeroSlideView: View {
     }
 }
 
-#Preview {
-    HeroSlideView(slide: HeroSlide(id: 1, title: "title test", subtitle: "subtitle text", backgroundImage: "hero1", backgroundColor: Color.blue))
-}
+//#Preview {
+//    HeroSlideView(slide: HeroSlide(id: 1, title: "title test", subtitle: "subtitle text", backgroundImage: "FathersDayHero"))
+//}

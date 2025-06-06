@@ -21,14 +21,14 @@ struct HeroSlideView: View {
                 Text(slide.title)
                     .font(.largeTitle)
                     .fontWeight(.bold)
-                    .foregroundStyle(.white)
+                    .foregroundStyle(.black)
                     .multilineTextAlignment(.center)
                     .shadow(color: .black.opacity(0.3), radius: 2, x: 0, y: 1)
                 
                 // Subtitle
                 Text(slide.subtitle)
                     .font(.headline)
-                    .foregroundStyle(.white)
+                    .foregroundStyle(.black)
                     .multilineTextAlignment(.center)
                     .padding(.horizontal, 40)
                     .shadow(color: .black.opacity(0.3), radius: 1, x: 0, y: 1)

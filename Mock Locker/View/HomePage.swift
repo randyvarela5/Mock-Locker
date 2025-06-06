@@ -8,9 +8,6 @@
 import SwiftUI
 
 struct HomePage: View {
-    
-   // @State var searchText : String = ""
-    
     var body: some View {
         VStack {
             HeaderView()
@@ -18,11 +15,20 @@ struct HomePage: View {
                 VStack {
                     HStack {
                         Text("Shop all departments")
-                            .font(.headline)
+                            .font(.title3)
+                        Spacer()
+                        
+                        Button{
+                            print("Shop all departments pressed")
+                        } label: {
+                            Image(systemName: "chevron.right")
+                                .foregroundColor(.black)
+                        }
                     }
+                    .padding()
                     Rectangle()
                         .fill(Color.gray.opacity(0.3))
-                        .padding(.vertical, 16)
+                        //.padding(.vertical, 8)
                     HeroSlideshow()
                         .frame(height: 280)
                     Rectangle()
@@ -40,9 +46,9 @@ struct HomePage: View {
     }
 }
 
-//#Preview {
-//    HomePage()
-//}
+#Preview {
+    HomePage()
+}
 
 
 

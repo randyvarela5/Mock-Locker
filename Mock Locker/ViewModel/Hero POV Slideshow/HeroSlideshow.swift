@@ -43,31 +43,31 @@ struct HeroSlideshow: View {
                     .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
                     .animation(.easeInOut(duration: 0.6), value: currentIndex)
                     
-                    // Overlay controls: These work, but I dont think I need them yet.
-                    //                VStack {
-                    //                    Spacer()
-                    //                    HStack {
-                    //                        Button(action: togglePlayPause) {
-                    //                            Image(systemName: isPlaying ? "pause.circle.fill" : "play.circle.fill")
-                    //                                .font(.title2)
-                    //                                .foregroundColor(.white)
-                    //                                .background(
-                    //                                    Circle()
-                    //                                        .fill(Color.black.opacity(0.3))
-                    //                                        .frame(width: 44, height: 44)
-                    //                                )
-                    //                        }
-                    //                        Spacer()
-                    //                        PaginationDots(totalPages: slides.count,
-                    //                                       currentIndex: currentIndex,
-                    //                                       onPageTap: { index in
-                    //                                           withAnimation(.easeInOut(duration: 0.5)) {
-                    //                                               currentIndex = index
-                    //                                           }
-                    //                                           resetTimer()
-                    //                                       })
-                    //                    }
-                    //                }
+//                     Overlay controls: These work, but I dont think I need them yet.
+                                    VStack {
+                                        Spacer()
+                                        HStack {
+                                            Button(action: togglePlayPause) {
+                                                Image(systemName: isPlaying ? "pause.circle.fill" : "play.circle.fill")
+                                                    .font(.title2)
+                                                    .foregroundColor(.white)
+                                                    .background(
+                                                        Circle()
+                                                            .fill(Color.black.opacity(0.3))
+                                                            .frame(width: 44, height: 44)
+                                                    )
+                                            }
+                                            Spacer()
+                                            PaginationDots(totalPages: slides.count,
+                                                           currentIndex: currentIndex,
+                                                           onPageTap: { index in
+                                                               withAnimation(.easeInOut(duration: 0.5)) {
+                                                                   currentIndex = index
+                                                               }
+                                                               resetTimer()
+                                                           })
+                                        }
+                                    }
                 }
                 .frame(height: 250)
                 .padding()

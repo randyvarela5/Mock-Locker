@@ -4,7 +4,7 @@ Mock Locker is a SwiftUI-based mock e-commerce app inspired by Foot Locker. This
 
 ## 📸 Screenshots
 
-![homescreen](homescreen.png) !
+![homescreen Slideshow](homescreenSlideshow.png) !![homescreen carousel](homescreenCarousel.png) ! ![homescreen grid](homescreenGrid.png) ! 
 
 ## 🚀 Features
 

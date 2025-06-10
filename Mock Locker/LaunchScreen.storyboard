@@ -15,21 +15,25 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Mockl-Locker-logo" translatesAutoresizingMaskIntoConstraints="NO" id="wJk-ea-4Cr">
-                                <rect key="frame" x="16" y="303" width="361" height="246"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="246" id="fdp-Px-QLm"/>
-                                    <constraint firstAttribute="width" constant="361" id="gs6-ex-Mz4"/>
-                                </constraints>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launchscreen" translatesAutoresizingMaskIntoConstraints="NO" id="oEP-0w-OMc">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mockLockerLogo2" translatesAutoresizingMaskIntoConstraints="NO" id="fJW-S1-7Dd">
+                                <rect key="frame" x="27" y="284" width="339" height="284"/>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Bcu-3y-fUS"/>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="wJk-ea-4Cr" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="Hxd-l8-uun"/>
-                            <constraint firstItem="wJk-ea-4Cr" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="VuU-N6-cNF"/>
-                            <constraint firstItem="wJk-ea-4Cr" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="hWn-vI-DQo"/>
-                            <constraint firstItem="wJk-ea-4Cr" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="m7E-oS-ehP"/>
+                            <constraint firstItem="fJW-S1-7Dd" firstAttribute="leading" secondItem="Bcu-3y-fUS" secondAttribute="leading" constant="27" id="0Yy-SI-Ioi"/>
+                            <constraint firstItem="fJW-S1-7Dd" firstAttribute="top" secondItem="Bcu-3y-fUS" secondAttribute="top" constant="225" id="Fxa-fo-VFO"/>
+                            <constraint firstItem="oEP-0w-OMc" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="JnW-u8-JGI"/>
+                            <constraint firstItem="oEP-0w-OMc" firstAttribute="leading" secondItem="Bcu-3y-fUS" secondAttribute="leading" id="atL-yV-O4q"/>
+                            <constraint firstItem="oEP-0w-OMc" firstAttribute="trailing" secondItem="Bcu-3y-fUS" secondAttribute="trailing" id="dH9-mE-0Qz"/>
+                            <constraint firstItem="fJW-S1-7Dd" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="iIn-Gk-VvS"/>
+                            <constraint firstItem="fJW-S1-7Dd" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="ngO-8R-jLa"/>
+                            <constraint firstItem="Bcu-3y-fUS" firstAttribute="trailing" secondItem="fJW-S1-7Dd" secondAttribute="trailing" constant="27" id="pbM-ua-Rod"/>
+                            <constraint firstItem="Bcu-3y-fUS" firstAttribute="bottom" secondItem="fJW-S1-7Dd" secondAttribute="bottom" constant="250" id="vAB-Li-B0G"/>
+                            <constraint firstAttribute="bottom" secondItem="oEP-0w-OMc" secondAttribute="bottom" id="xUm-TL-uxw"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -39,6 +43,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Mockl-Locker-logo" width="3840" height="2160"/>
+        <image name="launchscreen" width="1024" height="1536"/>
+        <image name="mockLockerLogo2" width="916" height="803"/>
     </resources>
 </document>

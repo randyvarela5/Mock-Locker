@@ -28,7 +28,7 @@ struct HeaderView: View {
                         .padding()
                         .foregroundStyle(.white)
                 }
-                Image("referree")
+                Image("newRefLogo2")
                     .resizable()
                     .frame(width: 50, height: 45)
             }

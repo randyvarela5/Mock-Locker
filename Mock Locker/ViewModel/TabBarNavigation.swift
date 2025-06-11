@@ -14,16 +14,11 @@ struct TabBarNavigation: View {
                 .tabItem {
                     Image(systemName: "house"); Text("Home")
                 }
-            Text("Scan")
-                .tabItem {
-                    Image(systemName: "barcode.viewfinder"); Text("Scan")
-                }
-            Text("Account")
+
             AccountsScreen()
                 .tabItem {
                     Image(systemName: "person.crop.circle"); Text("Accounts")
                 }
-                .background(.white)
             Text("Checkout")
                 .tabItem {
                     Image(systemName: "cart"); Text("Checkout")

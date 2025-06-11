@@ -40,7 +40,7 @@ struct HeroSlideshow: View {
                                 .tag(index)
                         }
                     }
-                    .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
+                    .tabViewStyle(.page(indexDisplayMode: .never))
                     .animation(.easeInOut(duration: 0.6), value: currentIndex)
                     
 //                     Overlay controls: These work, but I dont think I need them yet.

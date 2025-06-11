@@ -17,7 +17,7 @@ struct AccountsScreen: View {
             Image("mockLockerLogo2")
                 .resizable()
                 .frame(width: 150, height: 150)
-                //.padding()
+                .padding()
             HStack {
                 Text("Email")
                     .font(.headline)
@@ -56,7 +56,7 @@ struct AccountsScreen: View {
             .cornerRadius(25)
             
             Text("Already have an account? Sign Up!")
-                .padding()
+                .padding(.top)
             
             Button {
                 print("Register your account pressed")
@@ -78,8 +78,13 @@ struct AccountsScreen: View {
                 .fill(Color.gray.opacity(0.5))
                 .frame(width: 350, height: 1)
                 .padding()
+            
+            Text("Dont like this app? I have others!")
+                .font(.callout)
+            Link("Check out my portfolio", destination: URL(string: "https://Randyvarela.com")!)
         }
-        Spacer()
+        //Commenting this spacer as a reminder that this Spacer caused the duplicate tabs issue i spent hours trying to debug. need to remember this happened
+       // Spacer()
     }
 }
 

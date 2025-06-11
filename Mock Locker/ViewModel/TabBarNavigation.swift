@@ -19,6 +19,7 @@ struct TabBarNavigation: View {
                     Image(systemName: "barcode.viewfinder"); Text("Scan")
                 }
             Text("Account")
+            AccountsScreen()
                 .tabItem {
                     Image(systemName: "person.crop.circle"); Text("Accounts")
                 }

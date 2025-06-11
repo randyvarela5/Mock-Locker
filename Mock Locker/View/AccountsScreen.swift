@@ -8,6 +8,10 @@
 import SwiftUI
 
 struct AccountsScreen: View {
+    
+    @State var email: String = ""
+    @State var password: String = ""
+    
     var body: some View {
         VStack {
             Image("mockLockerLogo2")
@@ -16,17 +20,8 @@ struct AccountsScreen: View {
                 .padding()
             Text("Email")
                 .font(.headline)
-            TextField("Email Address", text: .constant(""))
-                .padding()
-            Text("Password")
-                .font(.headline)
-            SecureField("Password", text: .constant(""))
-                .padding()
-            Button(action: {}) {
-                Text("Sign In")
-                    .font(.headline)
-                    .foregroundColor(.white)
-            }
+            customTextField(placerHolderText: "email", inputText: $email)
+                
         }
         Spacer()
     }
@@ -35,3 +30,4 @@ struct AccountsScreen: View {
 #Preview {
     AccountsScreen()
 }
+

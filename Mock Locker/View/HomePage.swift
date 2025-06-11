@@ -28,7 +28,6 @@ struct HomePage: View {
                     .padding()
                     Rectangle()
                         .fill(Color.gray.opacity(0.3))
-                        //.padding(.vertical, 8)
                     HeroSlideshow()
                         .frame(height: 280)
                     Rectangle()

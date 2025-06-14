@@ -70,8 +70,8 @@ struct AccountsScreen: View {
             .foregroundColor(.black)
             .cornerRadius(25)
             .overlay(
-                RoundedRectangle(cornerRadius: 25)  // Match the cornerRadius value
-                    .stroke(Color.black, lineWidth: 2)  // Use .black for consistent black outline
+                RoundedRectangle(cornerRadius: 25)
+                    .stroke(Color.black, lineWidth: 2)
             )
             
             Rectangle()
@@ -82,8 +82,10 @@ struct AccountsScreen: View {
             Text("Dont like this app? I have others!")
                 .font(.callout)
             Link("Check out my portfolio", destination: URL(string: "https://Randyvarela.com")!)
+            
+            Spacer()
         }
-        //Commenting this spacer as a reminder that this Spacer caused the duplicate tabs issue i spent hours trying to debug. need to remember this happened
+        //Commenting this spacer as a reminder that this Spacer caused the duplicate tabs issue I spent hours trying to debug. need to understand why this happened
        // Spacer()
     }
 }

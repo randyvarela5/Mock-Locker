@@ -25,7 +25,7 @@ struct TabBarNavigation: View {
                 }
             Text("About")
                 .tabItem {
-                    Image(systemName: "questionmark.circle"); Text("About")
+                    Image(systemName: "figure.wave"); Text("About")
                 }
         }
         .onAppear {

@@ -17,8 +17,9 @@ struct ProductCarousel: View {
                 HStack(spacing : 16) {
                     
                     ForEach(MerchandiseData.merchandise) { product in
-                        ProductCard(product: product)
-                        
+                        NavigationLink(destination: ProductDetailsPage(merchandise: product)){
+                            ProductCard(product: product)
+                        }
                     }
                 }
             }

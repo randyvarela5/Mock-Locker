@@ -24,6 +24,12 @@ struct ProductDetailsPage: View {
             .padding(.horizontal)
             .padding(.top)
             HStack {
+                Text("\(merchandise.brand) | \(merchandise.category)")
+                    .font(.subheadline)
+                Spacer()
+            }
+            .padding(.horizontal)
+            HStack {
                 Text("Item # 990347679")
                     .font(.caption2)
                 Text("Model # U328JMB-001")

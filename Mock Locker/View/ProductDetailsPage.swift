@@ -16,17 +16,31 @@ struct ProductDetailsPage: View {
             HStack {
                 Text(merchandise.name)
                     .font(.title)
+                Spacer()
                 Image(systemName: "square.and.arrow.up")
+                    .font(.title2)
             }
+            //This double padding works, but there has to be a cleaner way to do this
+            .padding(.horizontal)
+            .padding(.top)
             HStack {
                 Text("Item # 990347679")
                     .font(.caption2)
                 Text("Model # U328JMB-001")
                     .font(.caption2)
+                Spacer()
             }
-            Image(merchandise.thumbnail)
-                .resizable()
-                .frame(width: 300, height: 300)
+            .padding(.horizontal)
+            //TODO: placeholder image takes too long to be replaced when loading PDP.
+            AsyncImage(url: URL(string: merchandise.imageURL)) { image in
+                image
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+            } placeholder: {
+                Image(merchandise.thumbnail)
+                    .resizable()
+                    .frame(width: 300, height: 300)
+            }
             Text("$\(merchandise.price, specifier: "%.2f")")
                 .font(.largeTitle)
                 .fontWeight(.bold)

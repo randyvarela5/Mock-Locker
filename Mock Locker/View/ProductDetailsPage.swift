@@ -32,10 +32,36 @@ struct ProductDetailsPage: View {
                 .fontWeight(.bold)
                 .foregroundStyle(.green)
         }
+        .navigationBarTitleDisplayMode(.inline)
+        .navigationTitle("Item Details")
+        .toolbarBackground(Color.black, for: .navigationBar)
+        .toolbarBackground(.visible, for: .navigationBar)
+        .toolbarColorScheme(.dark, for: .navigationBar)
+        .toolbar {
+            ToolbarItem(placement: .topBarTrailing) {
+                HStack {
+                    Button(action: {
+                        print("Search button pressed")
+                    }) {
+                        Image(systemName: "magnifyingglass")
+                            .font(.title2)
+                            .foregroundStyle(.white)
+                    }
+                    
+                    Button(action: {
+                        print("Shopping cart pressed")
+                    }) {
+                        Image(systemName: "cart")
+                            .font(.title2)
+                            .foregroundStyle(.white)
+                    }
+                }
+            }
+        }
         Spacer()
     }
 }
 
-#Preview {
-    ProductDetailsPage(merchandise: MerchandiseData.merchandise[0])
-}
+//#Preview {
+//    ProductDetailsPage(merchandise: MerchandiseData.merchandise[0])
+//}

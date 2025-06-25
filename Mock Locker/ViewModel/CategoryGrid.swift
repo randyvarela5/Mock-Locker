@@ -8,32 +8,30 @@
 import SwiftUI
 
 struct CategoryGrid: View {
+    
+    //I have 20 items total, im iterating through items 6-14
+    let categoryProducts = Array(MerchandiseData.merchandise[6...14])
+    
     var body: some View {
         VStack() {
             Text("Top Selling Categories")
                 .padding()
                 .font(.title.bold())
                 .frame(maxWidth: .infinity, alignment: .leading)
-            HStack {
-                CategoryGridCardTemplate(product: MerchandiseData.merchandise[6])
-                CategoryGridCardTemplate(product: MerchandiseData.merchandise[7])
-                CategoryGridCardTemplate(product: MerchandiseData.merchandise[8])
-            }
             
-            HStack {
-                CategoryGridCardTemplate(product: MerchandiseData.merchandise[9])
-                CategoryGridCardTemplate(product: MerchandiseData.merchandise[10])
-                CategoryGridCardTemplate(product: MerchandiseData.merchandise[11])
+            LazyVGrid(columns: Array(repeating: GridItem(.flexible()), count: 3), spacing: 6) {
+                ForEach(categoryProducts) { product in
+                    NavigationLink(destination: ProductDetailsPage(merchandise: product)) {
+                        CategoryGridCardTemplate(product: product)
+                    }
+                    .buttonStyle(PlainButtonStyle())
+                }
             }
-            HStack {
-                CategoryGridCardTemplate(product: MerchandiseData.merchandise[12])
-                CategoryGridCardTemplate(product: MerchandiseData.merchandise[13])
-                CategoryGridCardTemplate(product: MerchandiseData.merchandise[14])
-            }
+            .padding(.horizontal)
         }
     }
 }
 
-#Preview {
-    CategoryGrid()
-}
+//#Preview {
+//    CategoryGrid()
+//}

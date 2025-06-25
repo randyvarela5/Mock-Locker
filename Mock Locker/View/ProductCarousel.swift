@@ -20,6 +20,7 @@ struct ProductCarousel: View {
                         NavigationLink(destination: ProductDetailsPage(merchandise: product)){
                             ProductCard(product: product)
                         }
+                        .buttonStyle(PlainButtonStyle())
                     }
                 }
             }

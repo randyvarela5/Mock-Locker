@@ -15,20 +15,20 @@ struct CategoryGrid: View {
                 .font(.title.bold())
                 .frame(maxWidth: .infinity, alignment: .leading)
             HStack {
-                CategoryGridCardTemplate(product: MerchandiseData.merchandise[0])
-                CategoryGridCardTemplate(product: MerchandiseData.merchandise[1])
-                CategoryGridCardTemplate(product: MerchandiseData.merchandise[2])
+                CategoryGridCardTemplate(product: MerchandiseData.merchandise[6])
+                CategoryGridCardTemplate(product: MerchandiseData.merchandise[7])
+                CategoryGridCardTemplate(product: MerchandiseData.merchandise[8])
             }
             
             HStack {
-                CategoryGridCardTemplate(product: MerchandiseData.merchandise[3])
-                CategoryGridCardTemplate(product: MerchandiseData.merchandise[4])
-                CategoryGridCardTemplate(product: MerchandiseData.merchandise[5])
+                CategoryGridCardTemplate(product: MerchandiseData.merchandise[9])
+                CategoryGridCardTemplate(product: MerchandiseData.merchandise[10])
+                CategoryGridCardTemplate(product: MerchandiseData.merchandise[11])
             }
             HStack {
-                CategoryGridCardTemplate(product: MerchandiseData.merchandise[18])
-                CategoryGridCardTemplate(product: MerchandiseData.merchandise[19])
-                CategoryGridCardTemplate(product: MerchandiseData.merchandise[16])
+                CategoryGridCardTemplate(product: MerchandiseData.merchandise[12])
+                CategoryGridCardTemplate(product: MerchandiseData.merchandise[13])
+                CategoryGridCardTemplate(product: MerchandiseData.merchandise[14])
             }
         }
     }

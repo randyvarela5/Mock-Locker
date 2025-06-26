@@ -9,12 +9,16 @@ import SwiftUI
 
 struct ProductDetailsPage: View {
     
-    let merchandise: Merchandise
+    @StateObject var viewModel : ProductDetailsPageViewModel
+    
+    init(merchandise : Merchandise) {
+        self._viewModel = StateObject(wrappedValue: ProductDetailsPageViewModel(merchandise: merchandise))
+    }
     
     var body: some View {
         VStack{
             HStack {
-                Text(merchandise.name)
+                Text(viewModel.merchandise.name)
                     .font(.title)
                 Spacer()
                 Image(systemName: "square.and.arrow.up")
@@ -24,30 +28,33 @@ struct ProductDetailsPage: View {
             .padding(.horizontal)
             .padding(.top)
             HStack {
-                Text("\(merchandise.brand) | \(merchandise.category)")
+                Text("\(viewModel.merchandise.brand) | \(viewModel.merchandise.category)")
                     .font(.subheadline)
                 Spacer()
             }
             .padding(.horizontal)
             HStack {
-                Text("Item # 990347679")
+                Text(viewModel.itemNumber)
                     .font(.caption2)
-                Text("Model # U328JMB-001")
+                Text(viewModel.modelNumber)
                     .font(.caption2)
                 Spacer()
             }
             .padding(.horizontal)
+            
             //TODO: placeholder image takes too long to be replaced when loading PDP.
-            AsyncImage(url: URL(string: merchandise.imageURL)) { image in
+            AsyncImage(url: viewModel.imageURL) { image in
                 image
                     .resizable()
                     .aspectRatio(contentMode: .fit)
             } placeholder: {
-                Image(merchandise.thumbnail)
+                Image(viewModel.merchandise.thumbnail)
                     .resizable()
                     .frame(width: 300, height: 300)
             }
-            Text("$\(merchandise.price, specifier: "%.2f")")
+            Text("Select your size:")
+                .font(.callout)
+            Text(viewModel.formattedPrice)
                 .font(.largeTitle)
                 .fontWeight(.bold)
                 .foregroundStyle(.green)

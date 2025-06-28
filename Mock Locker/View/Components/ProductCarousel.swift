@@ -8,15 +8,18 @@
 import SwiftUI
 
 struct ProductCarousel: View {
+    
+    @StateObject private var viewModel = ProductCarouselViewModel()
+    
     var body: some View {
         VStack(alignment: .leading) {
-            Text("Popular Items")
+            Text(viewModel.productCarouselTitle)
                 .padding()
                 .font(.title.bold())
             ScrollView(.horizontal) {
                 HStack(spacing : 16) {
                     
-                    ForEach(MerchandiseData.merchandise) { product in
+                    ForEach(viewModel.merchandise) { product in
                         NavigationLink(destination: ProductDetailsPage(merchandise: product)){
                             ProductCard(product: product)
                         }

@@ -9,18 +9,17 @@ import SwiftUI
 
 struct CategoryGrid: View {
     
-    //I have 20 items total, im iterating through items 6-14
-    let categoryProducts = Array(MerchandiseData.merchandise[6...14])
+    @StateObject private var viewModel = CategoryGridViewModel()
     
     var body: some View {
         VStack() {
-            Text("Top Selling Categories")
+            Text(viewModel.categoryGridTitle)
                 .padding()
                 .font(.title.bold())
                 .frame(maxWidth: .infinity, alignment: .leading)
             
-            LazyVGrid(columns: Array(repeating: GridItem(.flexible()), count: 3), spacing: 6) {
-                ForEach(categoryProducts) { product in
+            LazyVGrid(columns: viewModel.gridColumns, spacing: viewModel.gridSpacing) {
+                ForEach(viewModel.categoryProducts) { product in
                     NavigationLink(destination: ProductDetailsPage(merchandise: product)) {
                         CategoryGridCardTemplate(product: product)
                     }

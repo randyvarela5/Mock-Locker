@@ -9,8 +9,7 @@ import SwiftUI
 
 struct AccountsScreen: View {
     
-    @State var email: String = ""
-    @State var password: String = ""
+    @StateObject private var viewModel = AccountsScreenViewModel()
     
     var body: some View {
         VStack {
@@ -19,34 +18,34 @@ struct AccountsScreen: View {
                 .frame(width: 150, height: 150)
                 .padding()
             HStack {
-                Text("Email")
+                Text(viewModel.emailLabel)
                     .font(.headline)
                 Spacer()
             }
             .padding(.horizontal)
-            customTextField(placerHolderText: "email", inputText: $email)
+            customTextField(placerHolderText: viewModel.emailPlaceHolder, inputText: $viewModel.email)
                 .padding(.top, -20)
             
             HStack {
-                Text("Password")
+                Text(viewModel.passwordLabel)
                     .font(.headline)
                 Spacer()
             }
             .padding(.horizontal)
-            customTextField(placerHolderText: "Password", inputText: $password)
+            customTextField(placerHolderText: viewModel.passwordPlaceHolder, inputText: $viewModel.password)
                 .padding(.top, -20)
             
             HStack{
-                Text("Forgot email?")
+                Text(viewModel.forgotEmailText)
                 Spacer()
-                Text("Forgot password?")
+                Text(viewModel.forgotPasswordText)
             }
             .padding()
             
             Button{
                 print("Sign In button pressed")
             } label: {
-                Text("Sign In")
+                Text(viewModel.signInButtonText)
             }
             .frame(width: 350, height: 50)
             .background(.black)
@@ -55,13 +54,13 @@ struct AccountsScreen: View {
             .fontWeight(.bold)
             .cornerRadius(25)
             
-            Text("Already have an account? Sign Up!")
+            Text(viewModel.signUpPromptText)
                 .padding(.top)
             
             Button {
                 print("Register your account pressed")
             } label: {
-                Text("Register")
+                Text(viewModel.registerButtonText)
                     .font(.title3)
                     .fontWeight(.bold)
             }

@@ -48,104 +48,23 @@ jobs:
           -enableCodeCoverage YES \
           -resultBundlePath TestResults.xcresult
           
-    - name: Generate Detailed Coverage Report
-      if: always()  # Run even if tests fail
-      run: |
-        echo "=== OVERALL COVERAGE SUMMARY ==="
-        xcrun xccov view --report TestResults.xcresult
-        
-        echo ""
-        echo "=== DETAILED FILE-BY-FILE COVERAGE ==="
-        xcrun xccov view --report --only-targets TestResults.xcresult
-        
-        echo ""
-        echo "=== COVERAGE BY SOURCE FILE ==="
-        # Fixed: Remove the problematic --file-list command
-        # Instead, use the JSON output to extract file-level coverage
-        xcrun xccov view --report --json TestResults.xcresult > coverage.json
-        
-        # Show a summary of files with coverage info
-        echo "Files processed for coverage:"
-        xcrun xccov view TestResults.xcresult --json | python3 -c "
-import json, sys
-try:
-    data = json.load(sys.stdin)
-    if 'targets' in data:
-        for target in data['targets']:
-            if 'files' in target:
-                print(f'Target: {target.get(\"name\", \"Unknown\")}')
-                for file in target['files']:
-                    coverage = file.get('lineCoverage', 0) * 100
-                    print(f'  {file.get(\"path\", \"Unknown\")}: {coverage:.2f}%')
-except:
-    print('Could not parse JSON coverage data')
-        " 2>/dev/null || echo "Python parsing failed, but coverage data is available in JSON"
-        
-        # Extract overall percentage using jq if available, or basic parsing
-        if command -v jq &> /dev/null; then
-          COVERAGE_PERCENT=$(jq -r '.targets[0].lineCoverage * 100' coverage.json 2>/dev/null || echo "N/A")
-          echo "Overall Coverage: ${COVERAGE_PERCENT}%"
-        else
-          # Fallback parsing without jq
-          COVERAGE_PERCENT=$(xcrun xccov view --report TestResults.xcresult | grep -E "^\s*[0-9]+\.[0-9]+%" | head -1 | awk '{print $1}' || echo "N/A")
-          echo "Overall Coverage: ${COVERAGE_PERCENT}"
-        fi
-        
-        # Save coverage percentage to environment for use in other steps
-        echo "COVERAGE_PERCENT=${COVERAGE_PERCENT}" >> $GITHUB_ENV
-        
-        # Create a simple text report
-        echo "# Code Coverage Report" > coverage-report.md
-        echo "" >> coverage-report.md
-        echo "**Overall Coverage:** ${COVERAGE_PERCENT}" >> coverage-report.md
-        echo "" >> coverage-report.md
-        echo "## Detailed Coverage by Target" >> coverage-report.md
-        echo '```' >> coverage-report.md
-        xcrun xccov view --report --only-targets TestResults.xcresult >> coverage-report.md
-        echo '```' >> coverage-report.md
-        
-    # SINGLE upload step with all files
-    - name: Upload test results and coverage
+    - name: Upload test results
       uses: actions/upload-artifact@v4
       if: always()  # Upload even if tests fail
       with:
         name: test-results
-        path: |
-          TestResults.xcresult
-          coverage.json
-          coverage-report.md
+        path: TestResults.xcresult
           
-    - name: Comment Coverage on PR
-      if: github.event_name == 'pull_request'
-      uses: actions/github-script@v7
-      with:
-        script: |
-          const fs = require('fs');
-          try {
-            const coverageReport = fs.readFileSync('coverage-report.md', 'utf8');
-            await github.rest.issues.createComment({
-              issue_number: context.issue.number,
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              body: coverageReport
-            });
-          } catch (error) {
-            console.log('Could not post coverage comment:', error);
-          }
-          
-    - name: Coverage Check
-      if: always()
+    # Optional: Generate and display coverage report
+    - name: Generate Coverage Report
+      if: success()
       run: |
-        echo "Code coverage analysis complete!"
-        echo "Coverage: ${{ env.COVERAGE_PERCENT }}"
+        xcrun xccov view --report --only-targets TestResults.xcresult > coverage.txt
+        cat coverage.txt
         
-        # Optional: Fail if coverage is below threshold
-        # THRESHOLD=80
-        # if [[ "${{ env.COVERAGE_PERCENT }}" =~ ^[0-9]+\.?[0-9]*$ ]]; then
-        #   if (( $(echo "${{ env.COVERAGE_PERCENT }} < $THRESHOLD" | bc -l) )); then
-        #     echo "❌ Coverage ${{ env.COVERAGE_PERCENT }}% is below threshold of ${THRESHOLD}%"
-        #     exit 1
-        #   else
-        #     echo "✅ Coverage ${{ env.COVERAGE_PERCENT }}% meets threshold of ${THRESHOLD}%"
-        #   fi
-        # fi
+    - name: Upload Coverage
+      uses: actions/upload-artifact@v4
+      if: success()
+      with:
+        name: coverage-report
+        path: coverage.txt

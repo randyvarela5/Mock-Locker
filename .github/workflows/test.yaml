@@ -60,12 +60,26 @@ jobs:
         
         echo ""
         echo "=== COVERAGE BY SOURCE FILE ==="
-        xcrun xccov view --file-list TestResults.xcresult
-        
-        # Generate JSON for programmatic parsing
-        echo ""
-        echo "=== COVERAGE JSON (for parsing) ==="
+        # Fixed: Remove the problematic --file-list command
+        # Instead, use the JSON output to extract file-level coverage
         xcrun xccov view --report --json TestResults.xcresult > coverage.json
+        
+        # Show a summary of files with coverage info
+        echo "Files processed for coverage:"
+        xcrun xccov view TestResults.xcresult --json | python3 -c "
+import json, sys
+try:
+    data = json.load(sys.stdin)
+    if 'targets' in data:
+        for target in data['targets']:
+            if 'files' in target:
+                print(f'Target: {target.get(\"name\", \"Unknown\")}')
+                for file in target['files']:
+                    coverage = file.get('lineCoverage', 0) * 100
+                    print(f'  {file.get(\"path\", \"Unknown\")}: {coverage:.2f}%')
+except:
+    print('Could not parse JSON coverage data')
+        " 2>/dev/null || echo "Python parsing failed, but coverage data is available in JSON"
         
         # Extract overall percentage using jq if available, or basic parsing
         if command -v jq &> /dev/null; then

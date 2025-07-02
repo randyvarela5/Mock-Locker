@@ -1,5 +1,4 @@
 name: iOS Unit Tests
-
 on:
   # Run on every push and pull request
   push:
@@ -9,13 +8,12 @@ on:
   
   # Run on a schedule - every day at 9 AM UTC
   schedule:
-    - cron: '0 9 * * *'  # Daily at 9 AM
+    - cron: '0 9 * * *'  # Fixed: was '0 9 * **'
     # - cron: '0 */6 * * *'  # Every 6 hours
     # - cron: '0 9 * * 1'    # Every Monday at 9 AM
   
   # Allow manual triggering
   workflow_dispatch:
-
 jobs:
   test:
     name: Run Unit Tests
@@ -33,23 +31,24 @@ jobs:
     - name: Build and Test
       run: |
         xcodebuild test \
-          -scheme Mock Locker \
+          -project "Mock Locker.xcodeproj" \
+          -scheme "Mock Locker" \
           -destination 'platform=iOS Simulator,name=iPhone 15,OS=17.2' \
-          -enableCodeCoverage YES
+          -enableCodeCoverage YES \
+          -resultBundlePath TestResults.xcresult
           
     - name: Upload test results
       uses: actions/upload-artifact@v4
       if: always()  # Upload even if tests fail
       with:
         name: test-results
-        path: |
-          *.xcresult
+        path: TestResults.xcresult
           
     # Optional: Generate and display coverage report
     - name: Generate Coverage Report
       if: success()
       run: |
-        xcrun xccov view --report --only-targets *.xcresult > coverage.txt
+        xcrun xccov view --report --only-targets TestResults.xcresult > coverage.txt
         cat coverage.txt
         
     - name: Upload Coverage

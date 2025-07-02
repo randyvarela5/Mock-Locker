@@ -90,9 +90,10 @@ jobs:
         xcrun xccov view --report --only-targets TestResults.xcresult >> coverage-report.md
         echo '```' >> coverage-report.md
         
-    - name: Upload test results
+    # SINGLE upload step with all files
+    - name: Upload test results and coverage
       uses: actions/upload-artifact@v4
-      if: always()
+      if: always()  # Upload even if tests fail
       with:
         name: test-results
         path: |
@@ -134,18 +135,3 @@ jobs:
         #     echo "✅ Coverage ${{ env.COVERAGE_PERCENT }}% meets threshold of ${THRESHOLD}%"
         #   fi
         # fi
-          
-    - name: Upload test results
-      uses: actions/upload-artifact@v4
-      if: always()  # Upload even if tests fail
-      with:
-        name: test-results
-        path: TestResults.xcresult
-          
-    # Optional: Generate and display coverage report
-    - name: Generate Coverage Report
-      if: success()
-      run: |
-        xcrun xccov view --report --only-targets TestResults.xcresult > coverage.txt
-        cat coverage.txt
-        

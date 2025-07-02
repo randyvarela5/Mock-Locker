@@ -6,14 +6,35 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		E284D6462E14BF8100D96911 /* CategoryGridViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E284D6452E14BF8100D96911 /* CategoryGridViewModelTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		E284D63D2E14B37500D96911 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E21829472DE1825A000F97FE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E218294E2DE1825A000F97FE;
+			remoteInfo = "Mock Locker";
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		E218294F2DE1825A000F97FE /* Mock Locker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Mock Locker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E284D6392E14B37400D96911 /* MockLockerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MockLockerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E284D6452E14BF8100D96911 /* CategoryGridViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryGridViewModelTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		E21829512DE1825A000F97FE /* Mock Locker */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = "Mock Locker";
+			sourceTree = "<group>";
+		};
+		E284D63A2E14B37500D96911 /* MockLockerTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = MockLockerTests;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -26,13 +47,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		E284D6362E14B37400D96911 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		E21829462DE1825A000F97FE = {
 			isa = PBXGroup;
 			children = (
+				E284D6342E14B2F900D96911 /* Mock Locker Tests */,
 				E21829512DE1825A000F97FE /* Mock Locker */,
+				E284D63A2E14B37500D96911 /* MockLockerTests */,
 				E21829502DE1825A000F97FE /* Products */,
 			);
 			sourceTree = "<group>";
@@ -41,8 +71,25 @@
 			isa = PBXGroup;
 			children = (
 				E218294F2DE1825A000F97FE /* Mock Locker.app */,
+				E284D6392E14B37400D96911 /* MockLockerTests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		E284D6342E14B2F900D96911 /* Mock Locker Tests */ = {
+			isa = PBXGroup;
+			children = (
+				E284D6422E14B38000D96911 /* View Model Tests */,
+			);
+			path = "Mock Locker Tests";
+			sourceTree = "<group>";
+		};
+		E284D6422E14B38000D96911 /* View Model Tests */ = {
+			isa = PBXGroup;
+			children = (
+				E284D6452E14BF8100D96911 /* CategoryGridViewModelTests.swift */,
+			);
+			path = "View Model Tests";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -70,6 +117,29 @@
 			productReference = E218294F2DE1825A000F97FE /* Mock Locker.app */;
 			productType = "com.apple.product-type.application";
 		};
+		E284D6382E14B37400D96911 /* MockLockerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E284D63F2E14B37500D96911 /* Build configuration list for PBXNativeTarget "MockLockerTests" */;
+			buildPhases = (
+				E284D6352E14B37400D96911 /* Sources */,
+				E284D6362E14B37400D96911 /* Frameworks */,
+				E284D6372E14B37400D96911 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E284D63E2E14B37500D96911 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				E284D63A2E14B37500D96911 /* MockLockerTests */,
+			);
+			name = MockLockerTests;
+			packageProductDependencies = (
+			);
+			productName = MockLockerTests;
+			productReference = E284D6392E14B37400D96911 /* MockLockerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -82,6 +152,10 @@
 				TargetAttributes = {
 					E218294E2DE1825A000F97FE = {
 						CreatedOnToolsVersion = 16.2;
+					};
+					E284D6382E14B37400D96911 = {
+						CreatedOnToolsVersion = 16.2;
+						TestTargetID = E218294E2DE1825A000F97FE;
 					};
 				};
 			};
@@ -100,12 +174,20 @@
 			projectRoot = "";
 			targets = (
 				E218294E2DE1825A000F97FE /* Mock Locker */,
+				E284D6382E14B37400D96911 /* MockLockerTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		E218294D2DE1825A000F97FE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E284D6372E14B37400D96911 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -122,7 +204,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		E284D6352E14B37400D96911 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E284D6462E14BF8100D96911 /* CategoryGridViewModelTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E284D63E2E14B37500D96911 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E218294E2DE1825A000F97FE /* Mock Locker */;
+			targetProxy = E284D63D2E14B37500D96911 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		E218295B2DE1825C000F97FE /* Debug */ = {
@@ -304,6 +402,42 @@
 			};
 			name = Release;
 		};
+		E284D6402E14B37500D96911 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = B95FWVJB57;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.randyv.MockLockerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Mock Locker.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Mock Locker";
+			};
+			name = Debug;
+		};
+		E284D6412E14B37500D96911 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = B95FWVJB57;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.randyv.MockLockerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Mock Locker.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Mock Locker";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -321,6 +455,15 @@
 			buildConfigurations = (
 				E218295E2DE1825C000F97FE /* Debug */,
 				E218295F2DE1825C000F97FE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E284D63F2E14B37500D96911 /* Build configuration list for PBXNativeTarget "MockLockerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E284D6402E14B37500D96911 /* Debug */,
+				E284D6412E14B37500D96911 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

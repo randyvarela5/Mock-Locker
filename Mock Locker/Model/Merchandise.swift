@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Merchandise: Identifiable {
+struct Merchandise: Identifiable, Equatable {
     let id = UUID()
     let brand : String
     let name : String

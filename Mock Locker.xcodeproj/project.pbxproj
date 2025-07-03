@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		E284D6462E14BF8100D96911 /* CategoryGridViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E284D6452E14BF8100D96911 /* CategoryGridViewModelTests.swift */; };
+		E284D6482E16472E00D96911 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E284D6472E16472E00D96911 /* GoogleService-Info.plist */; };
+		E284D64B2E16486400D96911 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = E284D64A2E16486400D96911 /* FirebaseAuth */; };
+		E284D64D2E16486400D96911 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = E284D64C2E16486400D96911 /* FirebaseFirestore */; };
+		E284D6502E164B1A00D96911 /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E284D64F2E164B1A00D96911 /* AuthManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -24,6 +28,8 @@
 		E218294F2DE1825A000F97FE /* Mock Locker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Mock Locker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E284D6392E14B37400D96911 /* MockLockerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MockLockerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E284D6452E14BF8100D96911 /* CategoryGridViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryGridViewModelTests.swift; sourceTree = "<group>"; };
+		E284D6472E16472E00D96911 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		E284D64F2E164B1A00D96911 /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -44,6 +50,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E284D64B2E16486400D96911 /* FirebaseAuth in Frameworks */,
+				E284D64D2E16486400D96911 /* FirebaseFirestore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -60,10 +68,12 @@
 		E21829462DE1825A000F97FE = {
 			isa = PBXGroup;
 			children = (
+				E284D64E2E164AD200D96911 /* Authentication */,
 				E284D6342E14B2F900D96911 /* Mock Locker Tests */,
 				E21829512DE1825A000F97FE /* Mock Locker */,
 				E284D63A2E14B37500D96911 /* MockLockerTests */,
 				E21829502DE1825A000F97FE /* Products */,
+				E284D6472E16472E00D96911 /* GoogleService-Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
@@ -92,6 +102,14 @@
 			path = "View Model Tests";
 			sourceTree = "<group>";
 		};
+		E284D64E2E164AD200D96911 /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				E284D64F2E164B1A00D96911 /* AuthManager.swift */,
+			);
+			path = Authentication;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -112,6 +130,8 @@
 			);
 			name = "Mock Locker";
 			packageProductDependencies = (
+				E284D64A2E16486400D96911 /* FirebaseAuth */,
+				E284D64C2E16486400D96911 /* FirebaseFirestore */,
 			);
 			productName = "Mock Locker";
 			productReference = E218294F2DE1825A000F97FE /* Mock Locker.app */;
@@ -168,6 +188,9 @@
 			);
 			mainGroup = E21829462DE1825A000F97FE;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				E284D6492E16486400D96911 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = E21829502DE1825A000F97FE /* Products */;
 			projectDirPath = "";
@@ -184,6 +207,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E284D6482E16472E00D96911 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -201,6 +225,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E284D6502E164B1A00D96911 /* AuthManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -469,6 +494,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		E284D6492E16486400D96911 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 11.15.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		E284D64A2E16486400D96911 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E284D6492E16486400D96911 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		E284D64C2E16486400D96911 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E284D6492E16486400D96911 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = E21829472DE1825A000F97FE /* Project object */;
 }

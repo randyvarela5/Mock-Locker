@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct TabBarNavigation: View {
+    
+    @StateObject var authManager = AuthManager()
+    
     var body: some View {
         TabView {
             HomePage()
@@ -15,7 +18,15 @@ struct TabBarNavigation: View {
                     Image(systemName: "house"); Text("Home")
                 }
 
-            AccountsScreen()
+            Group{
+                if authManager.isLoggedIn {
+                    AccountScreenLoggedIn()
+                        .environmentObject(authManager)
+                } else {
+                    AccountsScreen()
+                        .environmentObject(authManager)
+                }
+            }
                 .tabItem {
                     Image(systemName: "person.crop.circle"); Text("Accounts")
                 }

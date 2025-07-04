@@ -10,14 +10,17 @@ import SwiftUI
 struct TabBarNavigation: View {
     
     @StateObject var authManager = AuthManager()
+    //Track current tab to make sure tab changes with naviggation
+    @State private var selectedTab = 0
     
     var body: some View {
-        TabView {
+        TabView(selection: $selectedTab) {
             HomePage()
                 .tabItem {
                     Image(systemName: "house"); Text("Home")
                 }
-
+            //Each tab is assigned a tag which we leverage for selectedTab
+                .tag(0)
             Group{
                 if authManager.isLoggedIn {
                     AccountScreenLoggedIn()
@@ -30,14 +33,21 @@ struct TabBarNavigation: View {
                 .tabItem {
                     Image(systemName: "person.crop.circle"); Text("Accounts")
                 }
-            Text("Checkout")
+                .tag(1)
+            //Wrapped in NavStack for navigation. child view wrapped in NavLink
+            NavigationStack {
+                ShoppingCartEmpty(selectedTab: $selectedTab)
+            }
                 .tabItem {
                     Image(systemName: "cart"); Text("Checkout")
                 }
+                .tag(2)
             Text("About")
+                
                 .tabItem {
                     Image(systemName: "figure.wave"); Text("About")
                 }
+                .tag(3)
         }
         .onAppear {
             let tabBarAppearance = UITabBarAppearance()

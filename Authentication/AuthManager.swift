@@ -51,4 +51,14 @@ class AuthManager: ObservableObject {
     func signOut() {
         try? Auth.auth().signOut()
     }
+    
+    func sendPasswordReset(email: String) {
+        Auth.auth().sendPasswordReset(withEmail: email) { error in
+            if let error = error {
+                print("Password reset error: \(error.localizedDescription)")
+            } else {
+                print("Password reset email sent successfully!")
+            }
+        }
+    }
 }

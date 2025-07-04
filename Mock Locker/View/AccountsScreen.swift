@@ -10,6 +10,7 @@ import SwiftUI
 struct AccountsScreen: View {
     
     @StateObject private var viewModel = AccountsScreenViewModel()
+    @StateObject private var authManager = AuthManager()
     
     var body: some View {
         VStack {
@@ -38,12 +39,14 @@ struct AccountsScreen: View {
             HStack{
                 Text(viewModel.forgotEmailText)
                 Spacer()
-                Text(viewModel.forgotPasswordText)
+                Button(viewModel.forgotPasswordText){
+                    authManager.sendPasswordReset(email: viewModel.email)
+                }
             }
             .padding()
             
             Button{
-                print("Sign In button pressed")
+                authManager.signIn(email: viewModel.email, password: viewModel.password)
             } label: {
                 Text(viewModel.signInButtonText)
             }
@@ -58,6 +61,7 @@ struct AccountsScreen: View {
                 .padding(.top)
             
             Button {
+                authManager.signUp(email: viewModel.email, password: viewModel.password)
                 print("Register your account pressed")
             } label: {
                 Text(viewModel.registerButtonText)
@@ -89,7 +93,7 @@ struct AccountsScreen: View {
     }
 }
 
-#Preview {
-    AccountsScreen()
-}
+//#Preview {
+//    AccountsScreen()
+//}
 

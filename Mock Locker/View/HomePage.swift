@@ -18,15 +18,14 @@ struct HomePage: View {
                 ScrollView {
                     VStack {
                         HStack {
+                            NavigationLink(destination: ShopAllBrandsListView()){
                             Text("Shop all brands")
                                 .font(.title3)
+                                .foregroundStyle(.black)
                             Spacer()
                             
-                            Button{
-                                print("Shop all brands pressed")
-                            } label: {
-                                Image(systemName: "chevron.right")
-                                    .foregroundColor(.black)
+                                    Image(systemName: "chevron.right")
+                                        .foregroundColor(.black)
                             }
                         }
                         .padding()

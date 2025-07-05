@@ -18,12 +18,12 @@ struct HomePage: View {
                 ScrollView {
                     VStack {
                         HStack {
-                            Text("Shop all departments")
+                            Text("Shop all brands")
                                 .font(.title3)
                             Spacer()
                             
                             Button{
-                                print("Shop all departments pressed")
+                                print("Shop all brands pressed")
                             } label: {
                                 Image(systemName: "chevron.right")
                                     .foregroundColor(.black)

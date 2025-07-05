@@ -22,7 +22,7 @@ struct ShopAllBrandsListView: View {
                 }
                 .padding()
                 .frame(maxWidth: .infinity, alignment: .topLeading)
-                .background(Color.red)
+                .background(Color.white)
                 .cornerRadius(8)
                 .listRowInsets(EdgeInsets(top: 4, leading: 16, bottom: 4, trailing: 16))
                 .listRowSeparator(.hidden)

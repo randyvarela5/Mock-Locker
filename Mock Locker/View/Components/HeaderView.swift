@@ -9,6 +9,7 @@ import SwiftUI
 
 struct HeaderView: View {
     @State var searchText : String = ""
+    @Binding var selectedTab: Int
 
     var body: some View {
         VStack {
@@ -23,10 +24,11 @@ struct HeaderView: View {
                             .foregroundStyle(.red)
                     }
                     Spacer()
-                    
-                    Image(systemName: "cart")
-                        .padding()
-                        .foregroundStyle(.white)
+                    NavigationLink(destination: ShoppingCartEmpty(selectedTab: $selectedTab)){
+                        Image(systemName: "cart")
+                            .padding()
+                            .foregroundStyle(.white)
+                    }
                 }
                 Image("newRefLogo2")
                     .resizable()
@@ -50,6 +52,6 @@ struct HeaderView: View {
     }
 }
 
-#Preview {
-    HeaderView()
-}
+//#Preview {
+//    HeaderView()
+//}

@@ -22,7 +22,7 @@ struct ShoppingCartEmpty: View {
                 .font(.headline)
                 .fontWeight(.heavy)
             //Wrapped button in NavLink. Parent view must be wrapped in NavigationStack (Cart tab item)
-            NavigationLink(destination: HomePage()) {
+            NavigationLink(destination: HomePage(selectedTab: $selectedTab)) {
                 Button{
                     //setting this to 0 navigates to first tag, which is HomeScreen
                     selectedTab = 0

@@ -8,10 +8,13 @@
 import SwiftUI
 
 struct HomePage: View {
+    
+    @Binding var selectedTab : Int
+    
     var body: some View {
         NavigationStack {
             VStack {
-                HeaderView()
+                HeaderView(selectedTab: $selectedTab)
                 ScrollView {
                     VStack {
                         HStack {
@@ -47,9 +50,9 @@ struct HomePage: View {
     }
 }
 
-#Preview {
-    HomePage()
-}
+//#Preview {
+//    HomePage()
+//}
 
 
 

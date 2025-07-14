@@ -28,6 +28,10 @@ class ProductDetailsPageViewModel: ObservableObject {
             return "Model # U328JMB-001"
         }
     
+    var availableSizes: [String] {
+        return merchandise.size
+    }
+    
     init(merchandise: Merchandise) {
         self.merchandise = merchandise
     }

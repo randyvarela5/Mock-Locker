@@ -9,7 +9,10 @@ import SwiftUI
 
 struct ProductDetailsPage: View {
     
+
+    
     @StateObject var viewModel : ProductDetailsPageViewModel
+    @State private var selectedSize: String? = nil
     
     init(merchandise : Merchandise) {
         self._viewModel = StateObject(wrappedValue: ProductDetailsPageViewModel(merchandise: merchandise))
@@ -54,6 +57,10 @@ struct ProductDetailsPage: View {
             }
             Text("Select your size:")
                 .font(.callout)
+            
+            // Place picker here:
+            ShoeSizePicker(viewModel: viewModel)
+            
             Text(viewModel.formattedPrice)
                 .font(.largeTitle)
                 .fontWeight(.bold)

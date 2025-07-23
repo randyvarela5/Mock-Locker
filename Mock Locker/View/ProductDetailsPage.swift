@@ -66,6 +66,20 @@ struct ProductDetailsPage: View {
                 .fontWeight(.bold)
                 .foregroundStyle(.green)
         }
+        Button {
+            print("Add to cart button pressed")
+        } label: {
+            HStack {
+                Text("Add To Cart")
+                Image(systemName: "cart")
+            }
+                .frame(width: 350, height: 50)
+                .background(.black)
+                .foregroundColor(.white)
+                .font(.title3)
+                .fontWeight(.bold)
+                .cornerRadius(25)
+        }
         .navigationBarTitleDisplayMode(.inline)
         .navigationTitle("Item Details")
         .toolbarBackground(Color.black, for: .navigationBar)

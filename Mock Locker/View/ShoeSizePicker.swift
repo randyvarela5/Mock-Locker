@@ -25,7 +25,7 @@ struct ShoeSizePicker: View {
                     //This is wrong
                     selectedSize = size
                 }) {
-                    Text(String(format: "%.1f", size))
+                    Text(size)
                         .frame(width: 60, height: 40)
                         .background(selectedSize ==  size ? Color.blue : Color.gray.opacity(0.2))
                         .foregroundStyle(selectedSize == size ? Color.white : Color.black)

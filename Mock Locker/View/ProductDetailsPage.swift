@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ProductDetailsPage: View {
     
-
+    
     
     @StateObject var viewModel : ProductDetailsPageViewModel
     @State private var selectedSize: String? = nil
@@ -19,67 +19,76 @@ struct ProductDetailsPage: View {
     }
     
     var body: some View {
-        VStack{
-            HStack {
-                Text(viewModel.merchandise.name)
-                    .font(.title)
-                Spacer()
-                Image(systemName: "square.and.arrow.up")
-                    .font(.title2)
+        ScrollView {
+            VStack{
+                HStack {
+                    Text(viewModel.merchandise.name)
+                        .font(.title)
+                    Spacer()
+                    Image(systemName: "square.and.arrow.up")
+                        .font(.title2)
+                }
+                //This double padding works, but there has to be a cleaner way to do this
+                .padding(.horizontal)
+                .padding(.top)
+                HStack {
+                    Text("\(viewModel.merchandise.brand) | \(viewModel.merchandise.category)")
+                        .font(.subheadline)
+                    Spacer()
+                }
+                .padding(.horizontal)
+                HStack {
+                    Text(viewModel.itemNumber)
+                        .font(.caption2)
+                    Text(viewModel.modelNumber)
+                        .font(.caption2)
+                    Spacer()
+                }
+                .padding(.horizontal)
+                
+                //TODO: placeholder image takes too long to be replaced when loading PDP.
+                AsyncImage(url: viewModel.imageURL) { image in
+                    image
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                } placeholder: {
+                    Image(viewModel.merchandise.thumbnail)
+                        .resizable()
+                        .frame(width: 300, height: 300)
+                }
+                Text(viewModel.shoeDescription)
+                    .padding()
+                    .font(.title3)
+                
+                Text("Select your size:")
+                    .font(.callout)
+                    .padding(.top)
+                
+                // Place picker here:
+                ShoeSizePicker(viewModel: viewModel)
+                
+                Text(viewModel.formattedPrice)
+                    .font(.largeTitle)
+                    .fontWeight(.bold)
+                    .foregroundStyle(.green)
+                
+                Button {
+                    print("Add to cart button pressed")
+                } label: {
+                    HStack {
+                        Text("Add To Cart")
+                        Image(systemName: "cart")
+                    }
+                    .frame(width: 350, height: 50)
+                    .background(.black)
+                    .foregroundColor(.white)
+                    .font(.title3)
+                    .fontWeight(.bold)
+                    .cornerRadius(25)
+                }
             }
-            //This double padding works, but there has to be a cleaner way to do this
-            .padding(.horizontal)
-            .padding(.top)
-            HStack {
-                Text("\(viewModel.merchandise.brand) | \(viewModel.merchandise.category)")
-                    .font(.subheadline)
-                Spacer()
-            }
-            .padding(.horizontal)
-            HStack {
-                Text(viewModel.itemNumber)
-                    .font(.caption2)
-                Text(viewModel.modelNumber)
-                    .font(.caption2)
-                Spacer()
-            }
-            .padding(.horizontal)
-            
-            //TODO: placeholder image takes too long to be replaced when loading PDP.
-            AsyncImage(url: viewModel.imageURL) { image in
-                image
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-            } placeholder: {
-                Image(viewModel.merchandise.thumbnail)
-                    .resizable()
-                    .frame(width: 300, height: 300)
-            }
-            Text("Select your size:")
-                .font(.callout)
-            
-            // Place picker here:
-            ShoeSizePicker(viewModel: viewModel)
-            
-            Text(viewModel.formattedPrice)
-                .font(.largeTitle)
-                .fontWeight(.bold)
-                .foregroundStyle(.green)
         }
-        Button {
-            print("Add to cart button pressed")
-        } label: {
-            HStack {
-                Text("Add To Cart")
-                Image(systemName: "cart")
-            }
-                .frame(width: 350, height: 50)
-                .background(.black)
-                .foregroundColor(.white)
-                .font(.title3)
-                .fontWeight(.bold)
-                .cornerRadius(25)
-        }
+        // Navigation Bar
         .navigationBarTitleDisplayMode(.inline)
         .navigationTitle("Item Details")
         .toolbarBackground(Color.black, for: .navigationBar)

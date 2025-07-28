@@ -19,6 +19,10 @@ class ProductDetailsPageViewModel: ObservableObject {
         return URL(string: merchandise.imageURL)
     }
     
+    var shoeDescription: String {
+        return merchandise.description
+    }
+    
     // I need to add mock item numbers into the data model. hard code for now
     var itemNumber: String {
             return "Item # 990347679"

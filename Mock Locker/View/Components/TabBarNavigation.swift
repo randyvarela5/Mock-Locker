@@ -55,8 +55,6 @@ struct TabBarNavigation: View {
                     Image(systemName: "figure.wave"); Text("About")
                 }
                 .tag(3)
-            // I dont think i need to pass this in here. test to see if we can remove
-                .environmentObject(shoppingCartManager)
         }
         .onAppear {
             let tabBarAppearance = UITabBarAppearance()

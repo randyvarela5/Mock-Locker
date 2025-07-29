@@ -7,13 +7,18 @@
 
 import Foundation
 
+struct ShoppingCartItem {
+    let merchandiseID: UUID
+    let shoeSize: String
+    let quantity: Int = 1
+}
+
 class ShoppingCartManager: ObservableObject {
     
-    
-    // I need to change this to hold a UUID. using shoe name for now to get it working
-    @Published var items: [String] = []
+    @Published var items: [ShoppingCartItem] = []
 
-    func addShoeToCart(shoeName: String) {
-        items.append(shoeName)
+    func addShoeToCart(merchandiseID: UUID, shoeSize: String) {
+        let newItem = ShoppingCartItem(merchandiseID: merchandiseID, shoeSize: shoeSize)
+        items.append(newItem)
     }
 }

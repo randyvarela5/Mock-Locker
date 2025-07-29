@@ -12,6 +12,7 @@ struct ProductDetailsPage: View {
     
     
     @StateObject var viewModel : ProductDetailsPageViewModel
+    @EnvironmentObject var shoppingCartManager : ShoppingCartManager
     @State private var selectedSize: String? = nil
     
     init(merchandise : Merchandise) {
@@ -74,6 +75,7 @@ struct ProductDetailsPage: View {
                 
                 Button {
                     print("Add to cart button pressed")
+                    shoppingCartManager.addShoeToCart(shoeName: viewModel.merchandise.name)
                 } label: {
                     HStack {
                         Text("Add To Cart")

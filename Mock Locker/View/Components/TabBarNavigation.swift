@@ -34,23 +34,29 @@ struct TabBarNavigation: View {
                         .environmentObject(shoppingCartManager)
                 }
             }
-                .tabItem {
-                    Image(systemName: "person.crop.circle"); Text("Accounts")
-                }
-                .tag(1)
-                .environmentObject(shoppingCartManager)
+            .tabItem {
+                Image(systemName: "person.crop.circle"); Text("Accounts")
+            }
+            .tag(1)
+            .environmentObject(shoppingCartManager)
             //Wrapped in NavStack for navigation. child view wrapped in NavLink
             NavigationStack {
-                ShoppingCartEmpty(selectedTab: $selectedTab)
-            }
-                .tabItem {
-                    Image(systemName: "cart"); Text("Checkout")
+                Group{
+                    if shoppingCartManager.items.count > 0 {
+                        //call shopping cart not empty view here
+                    } else {
+                        ShoppingCartEmpty(selectedTab: $selectedTab)
+                    }
                 }
-                .tag(2)
-                .environmentObject(shoppingCartManager)
+            }
+            .tabItem {
+                Image(systemName: "cart"); Text("Checkout")
+            }
+            .tag(2)
+            .environmentObject(shoppingCartManager)
             
             Text("About")
-                
+            
                 .tabItem {
                     Image(systemName: "figure.wave"); Text("About")
                 }
@@ -58,14 +64,14 @@ struct TabBarNavigation: View {
         }
         .onAppear {
             let tabBarAppearance = UITabBarAppearance()
-                tabBarAppearance.backgroundColor = UIColor.black
-                
-                // Set both standard and scrollEdge appearances
-                UITabBar.appearance().standardAppearance = tabBarAppearance
-                UITabBar.appearance().scrollEdgeAppearance = tabBarAppearance
-                
-                // Keep your existing tint color
-                UITabBar.appearance().unselectedItemTintColor = UIColor.white
+            tabBarAppearance.backgroundColor = UIColor.black
+            
+            // Set both standard and scrollEdge appearances
+            UITabBar.appearance().standardAppearance = tabBarAppearance
+            UITabBar.appearance().scrollEdgeAppearance = tabBarAppearance
+            
+            // Keep your existing tint color
+            UITabBar.appearance().unselectedItemTintColor = UIColor.white
         }
     }
 }

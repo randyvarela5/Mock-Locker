@@ -66,7 +66,7 @@ struct ProductDetailsPage: View {
                     .padding(.top)
                 
                 // Place picker here:
-                ShoeSizePicker(viewModel: viewModel)
+                ShoeSizePicker(viewModel: viewModel, selectedSize: $selectedSize)
                 
                 Text(viewModel.formattedPrice)
                     .font(.largeTitle)
@@ -74,7 +74,12 @@ struct ProductDetailsPage: View {
                     .foregroundStyle(.green)
                 
                 Button {
-                    print("Add to cart button pressed")
+                    guard let selectedSize = selectedSize else {
+                        print("No size selected, cannot add to cart")
+                        return
+                    }
+                    shoppingCartManager.addShoeToCart(merchandiseID: viewModel.merchandise.id, shoeSize: selectedSize)
+                    print("Item added to cart!")
 
                 } label: {
                     HStack {
@@ -82,12 +87,14 @@ struct ProductDetailsPage: View {
                         Image(systemName: "cart")
                     }
                     .frame(width: 350, height: 50)
-                    .background(.black)
+                    .background(selectedSize == nil ? .gray : .black)
                     .foregroundColor(.white)
                     .font(.title3)
                     .fontWeight(.bold)
                     .cornerRadius(25)
                 }
+                // If no size is selected, disable the add to cart button
+                .disabled(selectedSize == nil)
             }
         }
         // Navigation Bar

@@ -10,7 +10,7 @@ import SwiftUI
 struct ShoeSizePicker: View {
     
     @StateObject var viewModel : ProductDetailsPageViewModel
-    @State private var selectedSize: String? = nil
+    @Binding var selectedSize: String?
     
     let shoeSizeColumns = [
         GridItem(.flexible()),

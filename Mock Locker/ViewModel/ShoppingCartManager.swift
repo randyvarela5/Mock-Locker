@@ -25,5 +25,6 @@ class ShoppingCartManager: ObservableObject {
             let newItem = ShoppingCartItem(merchandiseID: merchandiseID, shoeSize: shoeSize)
             items.append(newItem)
         }
+        print("Cart now has \(items.count) items")
     }
 }

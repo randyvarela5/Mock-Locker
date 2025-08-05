@@ -44,6 +44,7 @@ struct TabBarNavigation: View {
                 Group{
                     if shoppingCartManager.items.count > 0 {
                         //call shopping cart not empty view here
+                        ShoppingCartItemsView()
                     } else {
                         ShoppingCartEmpty(selectedTab: $selectedTab)
                     }

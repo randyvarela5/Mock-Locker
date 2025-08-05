@@ -1,5 +1,7 @@
 # Mock Locker
 
+[![iOS Unit Tests](https://github.com/randyvarela5/Mock-Locker/actions/workflows/test.yaml/badge.svg)](https://github.com/randyvarela5/Mock-Locker/actions/workflows/test.yaml)
+
 Mock Locker is a SwiftUI-based mock e-commerce app inspired by Foot Locker. This app is designed for educational and demonstration purposes to showcase SwiftUI development, modern UI design, and e-commerce features. It is not intended for production or public release.
 
 ## 📸 Screenshots

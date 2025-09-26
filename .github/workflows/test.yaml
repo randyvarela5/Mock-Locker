@@ -39,11 +39,15 @@ jobs:
         echo "=== File type check ==="
         file "Mock Locker.xcodeproj/project.pbxproj"
         
-    - name: List available simulators
-      run: xcrun simctl list devices available
-      
     - name: Build and Test
       run: |
+        # Just build first to make sure that works
+        xcodebuild build \
+          -project "Mock Locker.xcodeproj" \
+          -scheme "Mock Locker" \
+          -destination 'generic/platform=iOS Simulator'
+        
+        # Then test with the same destination
         xcodebuild test \
           -project "Mock Locker.xcodeproj" \
           -scheme "Mock Locker" \

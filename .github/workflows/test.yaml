@@ -39,21 +39,21 @@ jobs:
         echo "=== File type check ==="
         file "Mock Locker.xcodeproj/project.pbxproj"
         
-    - name: Build and Test
+    - name: Build for testing
       run: |
-        # Just build first to make sure that works
-        xcodebuild build \
+        xcodebuild build-for-testing \
           -project "Mock Locker.xcodeproj" \
           -scheme "Mock Locker" \
-          -destination 'generic/platform=iOS Simulator'
-        
-        # Then test with the same destination
-        xcodebuild test \
+          -sdk iphonesimulator \
+          -derivedDataPath ./DerivedData
+          
+    - name: Run tests without UI
+      run: |
+        xcodebuild test-without-building \
           -project "Mock Locker.xcodeproj" \
           -scheme "Mock Locker" \
-          -destination 'generic/platform=iOS Simulator' \
-          -enableCodeCoverage YES \
-          -resultBundlePath TestResults.xcresult
+          -sdk iphonesimulator \
+          -derivedDataPath ./DerivedData
           
     - name: Upload test results
       uses: actions/upload-artifact@v4
